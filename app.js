@@ -3,6 +3,8 @@
  * Module dependencies.
  */
 
+var index = require('./routes/index');
+var project = require('./routes/project');
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -36,6 +38,8 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
+app.get('/', index.view);
+app.get('/project/:name', project.viewProject);
 app.get('/', index.view);
 app.get('/hello/:userName', hello.view);
 // Example route
